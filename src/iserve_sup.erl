@@ -9,6 +9,7 @@ start_link() ->
     supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
 init([]) ->
+    io:format("iserve_sup.erl init([])*************~n",[]),
     Supervisor = self(),
     
     %% The servers supervisor is for keeping individual servers,

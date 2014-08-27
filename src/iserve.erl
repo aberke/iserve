@@ -54,6 +54,7 @@ behaviour_info(_Other) ->
     undefined.
 
 start() ->
+    io:format("iserve.erl start()*************~n",[]),
     application:start(sasl),
     application:start(iserve).
 

@@ -21,6 +21,7 @@
 %%% API
 
 start_link(_Master, {Starter, PortAndIP, Callback, Context}) ->
+    io:format("iserve_server.erl start_link(~w, {~w, ~w, ~w, ~w})*************~n", [_Master, Starter, PortAndIP, Callback, Context]),
     Name = list_to_atom(lists:concat([iserve_, port_of(PortAndIP)])),
     gen_server:start_link({local, Name}, ?MODULE, 
 			  [Starter, PortAndIP, Callback, Context], []).
@@ -41,6 +42,7 @@ ip_of(_Port)       -> {0,0,0,0}.
 	     
 
 init([Starter, PortAndIP, CbMod, CbData]) ->
+    io:format("iserve_server.erl init([~w, ~w,..]*************",[Starter,PortAndIP]),
     process_flag(trap_exit, true),
     erlang:link(Starter),
     Port = port_of(PortAndIP),

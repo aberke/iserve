@@ -19,10 +19,12 @@ start_link(SupervisorPid) ->
 %%% gen_server callbacks
 
 init([SupPid]) ->
+    io:format("iserve_master.erl init*************~n",[]),
     %% TODO, look up the sibling server supervisor?
     {ok, #state{supervisor=SupPid}}.
 
 handle_call({add_server, Conf}, _From, State) ->
+    io:format("iserve_master.erl handle_call({add_server, ~w},..*************~n", [Conf]),
     call_add_server(Conf, State);
 handle_call({del_server, Id}, _, State) ->
     call_del_server(Id, State);

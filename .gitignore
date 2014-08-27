@@ -1,4 +1,8 @@
 *.spec
 *.boot
 *.script
+*.beam
+*.rel
+*.dump
+ebin
 etc

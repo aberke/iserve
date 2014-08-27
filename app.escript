@@ -19,4 +19,3 @@ template(Vsn) ->
 main([VSN]) ->
     AppOut = template(VSN),
     io:fwrite('~p.~n', [AppOut]).
-
