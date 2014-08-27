@@ -1,5 +1,6 @@
 MODULES_DIRECTORY=examples/iserve_system
 ERL=erl
+PROJ_ROOT=$(PWD)
 
 .PHONY: all src clean
 
@@ -10,15 +11,16 @@ run_shell: clean all
 		-eval 'application:start(iserve_system).'
 
 all: src
-	./app.escript `cat LATEST_VERSION` > ebin/iserve.app
+	cp src/*.app ebin/
+	cp $(PROJ_ROOT)/$(MODULES_DIRECTORY)/src/*.app $(PROJ_ROOT)/$(MODULES_DIRECTORY)/ebin/
 
 src:
 	cd src && erl -make all
-	cd $(MODULES_DIRECTORY)/src && erl -make all
+	cd $(PROJ_ROOT)/$(MODULES_DIRECTORY)/src && erl -make all
 
 clean:
 	rm -f ebin/*
-	rm -f MODULES_DIRECTORY/ebin/*.beam
+	rm -f $(MODULES_DIRECTORY)/ebin/*
 # 	rm -f test/*.beam test/*.html
 # 	$(MAKE) -C test clean
 

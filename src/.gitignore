@@ -1,1 +1,7 @@
-*~
+*.spec
+*.boot
+*.script
+*.beam
+*.rel
+*.dump
+etc

@@ -1,6 +1,6 @@
 -module(iserve_system_cb).
 -export([start/1, iserve_request/2]).
--include_lib("$PROJ_ROOT/include/iserve.hrl").
+-include_lib("../../../include/iserve.hrl").
 
 -behaviour(iserve).
 
